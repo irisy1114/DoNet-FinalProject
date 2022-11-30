@@ -38,7 +38,7 @@
                                 <a class="dropdown-item" asp-controller="Product" asp-action="Category"><i class="fas fa-list-ul"></i> Browse Categories</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-search"></i> Product Search</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i class="fas fa-tag"></i> Current Discounts</a>
+                                <a class="dropdown-item" asp-controller="Product" asp-action="Discounts"><i class="fas fa-tag"></i> Current Discounts</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -54,6 +54,22 @@
                                 else
                                 {
                                     <a class="dropdown-item" asp-controller="Customer" asp-action="Register"><i class="far fa-address-card"></i> Register</a>
+                                    <a class="dropdown-item" asp-controller="Account" asp-action="Login"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+                                }
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="employeeDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-house-user"></i> Employees
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="employeeDropdown">
+                                @if (User?.Identity?.IsAuthenticated ?? false)
+                                {
+                                    <a class="dropdown-item" asp-controller="Employee" asp-action="ManageDiscounts"><i class="fas fa-percent"></i> Manage Discounts</a>
+                                    <a class="dropdown-item" asp-controller="Account" asp-action="Logout"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+                                }
+                                else
+                                {            
                                     <a class="dropdown-item" asp-controller="Account" asp-action="Login"><i class="fas fa-sign-in-alt"></i> Sign In</a>
                                 }
                             </div>

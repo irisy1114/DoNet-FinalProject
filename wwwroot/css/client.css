@@ -79,3 +79,7 @@ body {
 .discontinued {
     opacity: .5;
   }
+
+  #product_rows tr {
+    cursor: pointer;
+}
